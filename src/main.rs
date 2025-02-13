@@ -18,7 +18,7 @@ impl EventHandler for Handler {
 
 #[tokio::main]
 async fn main() {
-    let token = "MTMzOTIxOTA4OTMyMjY3NjMxOA.GF37qP.sF6aAPyYMJdEU_wII19MpfAACW6rC6JmqpvwjM";
+    let token = std::env::var("DISCORD_TOKEN").expect("Missing DISCORD_TOKEN env variable");;
     
     let intents = GatewayIntents::GUILD_MESSAGES | GatewayIntents::MESSAGE_CONTENT;
     let mut client = Client::builder(token, intents)
